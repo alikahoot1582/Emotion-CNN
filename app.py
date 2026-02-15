@@ -6,8 +6,8 @@ from PIL import Image
 # 1. Load the model (Cached so it doesn't reload on every click)
 @st.cache_resource
 def load_my_model():
-    return tf.keras.models.load_model('Mymodel.keras')
-
+    # Adding compile=False skips loading the optimizer/loss state
+    return tf.keras.models.load_model('Mymodel.keras', compile=False)
 model = load_my_model()
 
 # 2. Define the class labels 
